@@ -1,0 +1,10 @@
+#JSGF V1.0;
+
+grammar hubo;
+
+public <command> = <dance> | <wave> | <run> | <exit> | <keyword>;
+   <dance> = (DO THE ( ROBOT | DISCO | EGYPTIAN | CHICKEN DANCE ));
+   <wave> = (WAVE [ TO ( EVERYONE | THE ( CROWD | CROWD HUBO ) ) ] );
+   <run> = (RUN (DANCING DEMO | DRUMBING DEMO | FABRIC DEMO));
+   <exit> = STOP;
+   <keyword> = OK HUBO;
