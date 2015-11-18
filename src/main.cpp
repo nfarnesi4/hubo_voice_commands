@@ -116,7 +116,7 @@ int main(int argc, char *argv[]){
 
       if(!commandMode){
 	if(hyp != NULL){
-	  std::cout << "\nI heard: OK HUBO! Score: " << score <<  std::endl;
+	  std::cout << "\nI heard: ok hubo" << std::endl;
 	  commandMode = TRUE;
 	  ps_set_search(ps, lmSearch);
 	  std::cout << "Search switched to lm Search" << std::endl;
