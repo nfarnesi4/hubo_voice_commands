@@ -125,8 +125,8 @@ int main(int argc, char *argv[]){
       else{
 	if( hyp != NULL && (strcmp(hyp, "") != 0) ){
 	  std::cout << "\nI heard: " << hyp << " Score: " << score << std::endl;
-	  if( (strcmp(hyp, "OK HUBO")) != 0 ){
-            if( (strcmp(hyp, "STOP")) == 0 ){
+	  if( (strcmp(hyp, "ok hubo")) != 0 ){
+            if( (strcmp(hyp, "stop")) == 0 ){
               endRec =  true;
             }
 	    else{
@@ -165,21 +165,21 @@ int runCommand(const char* command){
   int success = 0;
 
   //check for the different commands
-  if( strncmp(command, "WAVE", 4) == 0 )
+  if( strncmp(command, "wave", 4) == 0 )
     success = system("python wave.py");
-  else if( strncmp(command, "RUN DANCING DEMO", 16) == 0 )
+  else if( strncmp(command, "run dancing demo", 16) == 0 )
     success = system("python wave.py");
-  else if( strncmp(command, "RUN DRUMBING DEMO", 17) == 0 )
+  else if( strncmp(command, "run drumbing demo", 17) == 0 )
     success = system("python wave.py");
-  else if( strncmp(command, "RUN FABRIC DEMO", 15) == 0 )
+  else if( strncmp(command, "run fabric demo", 15) == 0 )
     success = system("python wave.py");
-  else if( strncmp(command, "DO THE ROBOT", 12) == 0 )
+  else if( strncmp(command, "do the robot", 12) == 0 )
     success = system("python wave.py");
-  else if( strncmp(command, "DO THE DISCO", 12) == 0 )
+  else if( strncmp(command, "do the disco", 12) == 0 )
     success = system("python wave.py");
-  else if( strncmp(command, "DO THE EGYPTIAN", 15) == 0 )
+  else if( strncmp(command, "do the egyptian", 15) == 0 )
     success = system("python wave.py");
-  else if( strncmp(command, "DO THE CHICKEN DANCE", 20) == 0 )
+  else if( strncmp(command, "do the chicken dance", 20) == 0 )
     success = system("python wave.py");
   else
     std::cout << "Command: " << command <<" not recognized" << std::endl;

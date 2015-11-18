@@ -3,8 +3,8 @@
 grammar hubo;
 
 public <command> = <dance> | <wave> | <run> | <exit> | <keyword>;
-   <dance> = (DO THE ( ROBOT | DISCO | EGYPTIAN | CHICKEN DANCE ));
-   <wave> = (WAVE [ TO ( EVERYONE | THE ( CROWD | CROWD HUBO ) ) ] );
-   <run> = (RUN (DANCING DEMO | DRUMBING DEMO | FABRIC DEMO));
-   <exit> = STOP;
-   <keyword> = OK HUBO;
+   <dance> = (do the ( robot | disco | egyptian | chicken dance ));
+   <wave> = (wave [ to ( everyone | the ( crowd | crowd hubo ) ) ] );
+   <run> = (run (dancing demo | drumming demo | fabric demo));
+   <exit> = stop;
+   <keyword> = ok hubo;
