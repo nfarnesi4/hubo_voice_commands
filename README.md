@@ -3,11 +3,11 @@ This a small tool that uses cmu sphixbase, a light weight and open source voice 
 
 The tool requires the following programs to be installed in order to build correctly:
 
--- Pocketsphinx 5PreAlpha
--- sphnixbase 5PreAlpha
--- python2
--- gstream0.10-base
--- gst-plugins-base-libs
--- libpulse
--- libsamplerate
+- Pocketsphinx 5PreAlpha
+- sphnixbase 5PreAlpha
+- python2
+- gstream0.10-base
+- gst-plugins-base-libs
+- libpulse
+- libsamplerate
 
