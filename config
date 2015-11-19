@@ -1,0 +1,16 @@
+#The config file the program
+#specify the spoken command and then bash command to run 
+#note every possible grammar must be included in this file
+
+@commands
+wave to everyone
+python /home/hubo/bin/wave
+wave to the crowd
+python /home/hubo/bin/wave
+wave to the crowd hubo
+python /home/hubo/bin/wave
+
+#specifies the commands that exit the program
+@exit
+stop listening
+exit hubo

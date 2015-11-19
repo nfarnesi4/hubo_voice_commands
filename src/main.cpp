@@ -6,8 +6,8 @@
 #include <unistd.h>
 #include <ps_search.h>
 
-#define MODELDIRECTORY "model/hubo-us/"
-//#define MODELDIRECTORY "/usr/local/share/heylisten/model/hubo-us/"
+//#define MODELDIRECTORY "model/hubo-us/"
+#define MODELDIRECTORY "/usr/local/share/heyListen/model/hubo-us/"
 
 //consts:
 
