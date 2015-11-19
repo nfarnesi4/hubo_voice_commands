@@ -1,7 +1,12 @@
 CC = g++
 
 #compiler flags
-CFLAGS = -Wall
+CFLAGS =-c -Wall
+
+SRC_DIR = src
+
+SOURCES=$(SRC_DIR)/main.cpp $(SRC_DIR)/configReader.cpp
+OBJECTS=$(SOURCES:.cpp=.o)
 
 #inlcude path and linker
 LINKER_FLAGS = -I/usr/local/include -I/usr/local/include/sphinxbase -I/usr/local/include/pocketsphinx -L/usr/local/lib -lpocketsphinx -lsphinxbase -lsphinxad
@@ -13,11 +18,13 @@ TARGET = heyListen
 SHARE_DIR = /usr/local/share/$(TARGET)
 #the dir for the install bin
 BIN_DIR = /usr/local/bin
+all: $(SOURCES) $(TARGET)
 
-all: $(TARGET)
+$(TARGET): $(OBJECTS) 
+	$(CC) $(LINKER_FLAGS) $(OBJECTS) -o $@
 
-$(TARGET): src/main.cpp
-	$(CC) $(CFLAGS) $(LINKER_FLAGS) -o $(TARGET) src/main.cpp
+.cpp.o:
+	$(CC) $(CFLAGS) $(LINKER_FLAGS) $< -o $@  
 
 #NOTE: must be run as super user
 install: $(TARGET)
@@ -32,5 +39,5 @@ remove:
 	rm $(BIN_DIR)/$(TARGET)
 
 clean:
-	$(RM) $(TARGET) ~* hubo-us/~* src/~* 
+	$(RM) $(TARGET) *~ hubo-us/*~ $(SRC_DIR)/*~ $(SRC_DIR)/*.o 
 
