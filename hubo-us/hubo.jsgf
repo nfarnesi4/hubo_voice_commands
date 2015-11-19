@@ -2,9 +2,9 @@
 
 grammar hubo;
 
-public <command> = <dance> | <wave> | <run> | <exit> | <keyword>;
+public <command> = /9/<dance> | /10/<wave> | /9/<run> | /1/<exit> | /1/<keyword>;
    <dance> = (do the ( robot | disco | egyptian | chicken dance ));
-   <wave> = (wave [ to ( everyone | the ( crowd | crowd hubo ) ) ] );
+   <wave> = (wave to ( everyone | the ( crowd | crowd hubo ) ) );
    <run> = (run (dancing demo | drumming demo | fabric demo));
-   <exit> = stop;
-   <keyword> = ok hubo;
+   <exit> = stop listening | ((stop [listening] | close) hubo);
+   <keyword> = listen up hubo | what's up hubo;
