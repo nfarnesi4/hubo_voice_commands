@@ -27,7 +27,7 @@ install: $(TARGET)
 	cp -f $(TARGET) $(BIN_DIR)
 
 #NOTE: must be run as a super user
-remove: $(TARGET)
+remove:
 	rm -rf $(SHARE_DIR)
 	rm $(BIN_DIR)/$(TARGET)
 
