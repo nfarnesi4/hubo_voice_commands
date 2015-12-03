@@ -221,66 +221,40 @@ int main(int argc, char *argv[]){
 
 bool isExitCmd(const char* hyp){
   //test for the exit commands
-  //this will be done from a file in the future
-  if (strncmp(hyp, "stop ", 5) == 0){
-    return true;
+  for (std::vector<std::string>::const_iterator i = cmdConf.exitCommands.begin(); i != cmdConf.exitCommands.end(); ++i){
+    if(i->compare(hyp) == 0){
+      return true;
+    }
   }
-  else if (strcmp(hyp, "close hubo") == 0){
-    return true;
-  }
-  else{
-    return false;
-  }
-  
+
+  return false;
 }
 
 bool isKeyword(const char* hyp){
   //test for all the keywords
-  //this will be done from the keywords file in the future
+   for (std::vector<std::string>::const_iterator i = cmdConf.keywords.begin(); i != cmdConf.keywords.end(); ++i){
+    if(i->compare(hyp) == 0){
+      return true;
+    }
+  }
 
-  if (strcmp(hyp, "ok hubo") == 0){
-    return true;
-  }
-  else if (strcmp(hyp, "listen up hubo") == 0){
-    return true;
-  }
-  else if (strcmp(hyp, "what's up hubo") == 0){
-    return true;
-  }
-  else{
-    return false;
-  }
+  return false;  
   
 }
 
 int runCommand(const char* command){
-  int success = 0;
 
-  //check for the different commands
-  //this will be done by reading from a file in the future
+  //loop through all possible commands
+  for(size_t i = 0; i != (cmdConf.voiceCommands.size()); ++i){
+    //check to see if its a match with one of commands
+    if(cmdConf.voiceCommands[i].compare(command) == 0){
+      //match found so run the coresponding command and end this function
+      system(cmdConf.voiceCommandBash[i].c_str());
+      return true;
+    }
+  }
   
-  if( strncmp(command, "wave to", 7) == 0 )
-    success = system("python wave.py");
-  else if( strncmp(command, "run dancing demo", 16) == 0 )
-    success = system("python wave.py");
-  else if( strncmp(command, "run drumming demo", 17) == 0 )
-    success = system("python wave.py");
-  else if( strncmp(command, "run fabric demo", 15) == 0 )
-    success = system("python wave.py");
-  else if( strncmp(command, "do the robot", 12) == 0 )
-    success = system("python wave.py");
-  else if( strncmp(command, "do the disco", 12) == 0 )
-    success = system("python wave.py");
-  else if( strncmp(command, "do the egyptian", 15) == 0 )
-    success = system("python wave.py");
-  else if( strncmp(command, "do the chicken dance", 20) == 0 )
-    success = system("python wave.py");
-  else
-    std::cout << "Command: " << command <<" not recognized" << std::endl;
-
-  
-  return success;
-
+  return false;
 }
 
 
@@ -292,6 +266,7 @@ bool init(){
     std::cout << "Failed to read a config files" << std::endl;
     return false;
   }
+  //std::cout<< "***********  !!!The last voice command:"<<cmdConf.voiceCommandBash[cmdConf.voiceCommandBash.size()-1] << std::endl;
 
   
 config = cmd_ln_init(NULL, ps_args(), TRUE,
