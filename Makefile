@@ -5,7 +5,7 @@ CFLAGS =-c -Wall
 
 SRC_DIR = src
 
-SOURCES=$(SRC_DIR)/main.cpp $(SRC_DIR)/configReader.cpp
+SOURCES=$(SRC_DIR)/main.cpp $(SRC_DIR)/configParser.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 
 #inlcude path and linker

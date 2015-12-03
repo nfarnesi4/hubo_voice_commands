@@ -6,10 +6,11 @@
 #include <unistd.h>
 #include <ps_search.h>
 
-#include "configReader.h"
+#include "configParser.h"
 
 //#define MODELDIRECTORY "model/hubo-us/"
-#define MODELDIRECTORY "/usr/local/share/heyListen/model/hubo-us/"
+#define SHAREDIR "/usr/local/share/heyListen/"
+#define MODELDIRECTORY SHAREDIR "model/hubo-us/"
 
 //consts:
 
@@ -19,6 +20,7 @@ const char* keywordsLocation = MODELDIRECTORY "keywords.txt";
 const char* lmLocation = MODELDIRECTORY "en-us.lm.bin";
 const char* dictLocation = MODELDIRECTORY "cmudict-en-us.dict";
 const char* hmmLocation = MODELDIRECTORY "en-us";
+const char* configLocation = SHAREDIR "heyListen.config";
 
 //the different search modes
 const char* keywordsSearch = "keyword";
@@ -55,7 +57,10 @@ bool init();
 //free up the memory
 void close();
 
-//global objeccts:
+//global objects:
+
+//command config
+commandConfig cmdConf;
 //audio decoder
 ps_decoder_t *ps;
 //audio device (mic)
@@ -280,7 +285,15 @@ int runCommand(const char* command){
 
 
 bool init(){
+  //read all the config files
+  configParser confPar(configLocation, keywordsLocation);
 
+  if(!confPar.getCommandConfig(&cmdConf)){
+    std::cout << "Failed to read a config files" << std::endl;
+    return false;
+  }
+
+  
 config = cmd_ln_init(NULL, ps_args(), TRUE,
 		     "-hmm", hmmLocation,
 		     "-lm", lmLocation,

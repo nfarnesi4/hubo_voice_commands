@@ -3,14 +3,32 @@
 #note every possible grammar must be included in this file
 
 @commands
+#dance commands
+do the robot
+python /home/hubo/bin/wave
+do the disco
+python /home/hubo/bin/wave
+do the egyptian
+python /home/hubo/bin/wave
+do the chicken dance
+python /home/hubo/bin/wave
+#wave commands
 wave to everyone
 python /home/hubo/bin/wave
 wave to the crowd
 python /home/hubo/bin/wave
 wave to the crowd hubo
 python /home/hubo/bin/wave
+#run commands
+run dancing demo
+python /home/hubo/bin/wave
+run drumming demo
+python /home/hubo/bin/wave
+run fabric demo
+python /home/hubo/bin/wave
 
 #specifies the commands that exit the program
 @exit
 stop listening
-exit hubo
+stop listening hubo
+close hubo
