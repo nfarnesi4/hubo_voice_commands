@@ -51,7 +51,7 @@ bool isKeyword(const char*);
 //run the command based on the input
 int runCommand(const char*);
 
-//init all the sphix stuff
+//init all the sphinx stuff
 bool init();
 
 //free up the memory
@@ -70,7 +70,7 @@ cmd_ln_t *config;
 
 
 int main(int argc, char *argv[]){
-  //hold the guess for what the person said
+  //holds the guess for what the person said
   char const *hyp;
   //the score for the guess of what the person said
   int32 score;
